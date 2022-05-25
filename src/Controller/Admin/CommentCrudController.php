@@ -43,6 +43,7 @@ class CommentCrudController extends AbstractCrudController
         yield EmailField::new('email');
         yield TextareaField::new('text')->hideOnIndex();
         yield ImageField::new('photoFilename')->setBasePath('/uploads/photos')->setLabel('Photo')->hideOnForm();
+        yield TextField::new('state');
 
         $createAt = DateTimeField::new('createdAt')->setFormTypeOptions([
             'html5' => true,

@@ -35,6 +35,7 @@ class ConferenceController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $comment->setConference($conference);
+            $comment->setState('submitted');
             if ($photo = $form['photo']->getData()) {
                 $filename = bin2hex(random_bytes(6)). '.' .$photo->guessExtension();
                 try {
